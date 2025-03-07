@@ -1,0 +1,5 @@
+---
+sdev_ohmyzsh_dir: /tmp/.oh-my-zsh
+sdev_git_aliases_file: aliases-git.zsh
+sdev_gnupg_dir: /tmp/.gnupg
+sdev_gpgagent_conf_file: gpg-agent.conf

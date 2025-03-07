@@ -1,0 +1,63 @@
+---
+- name: Ensure Oh My Zsh directory exists
+  ansible.builtin.file:
+    path: "{{ sdev_ohmyzsh_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: Ensure Oh My Zsh custom directory exists
+  ansible.builtin.file:
+    path: "{{ sdev_ohmyzsh_dir }}/custom"
+    state: directory
+    mode: '0755'
+
+- name: "Get the status of Oh My Zsh git aliases custom file"
+  ansible.builtin.stat:
+    path: "{{ sdev_ohmyzsh_dir }}/custom/{{ sdev_git_aliases_file }}"
+  register: ohmyzsh_gitaliases_file
+
+- name: Ensure Oh My Zsh git aliases custom file exists
+  ansible.builtin.copy:
+    content: ""
+    dest: "{{ sdev_ohmyzsh_dir }}/custom/{{ sdev_git_aliases_file }}"
+    mode: '0644'
+  when: not ohmyzsh_gitaliases_file.stat.exists
+
+- name: Create aliases for git commands
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_ohmyzsh_dir }}/custom/{{ sdev_git_aliases_file }}"
+    state: present
+    backup: no
+    regexp: "^alias {{ item.key }}="
+    line: "alias {{ item.key }}={{ item.value }}"
+  loop: "{{ git_aliases | dict2items }}"
+
+- name: Ensure GnuPG directory exists
+  ansible.builtin.file:
+    path: "{{ sdev_gnupg_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: "Get the status of GPG agent configuration file"
+  ansible.builtin.stat:
+    path: "{{ sdev_gnupg_dir }}/{{ sdev_gpgagent_conf_file }}"
+  register: gpgagent_conf_file
+
+- name: Ensure GPG agent configuration file exists
+  ansible.builtin.copy:
+    content: ""
+    dest: "{{ sdev_gnupg_dir }}/{{ sdev_gpgagent_conf_file }}"
+    mode: '0644'
+  when: not gpgagent_conf_file.stat.exists
+
+- name: Set pinentry-program required by git for GPG signing
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_gnupg_dir }}/{{ sdev_gpgagent_conf_file }}"
+    state: present
+    backup: no
+    regexp: "^{{ item }}="
+    line: "{{ item }}"
+  with_items:
+    - pinentry-program /usr/local/bin/pinentry-mac
+    - default-cache-ttl
+    - max-cache-ttl 28800
