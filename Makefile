@@ -1,7 +1,7 @@
 ci: deps lint test
 
 define python_venv
-	. .venv/bin/activate && echo $$PATH && $(1)
+	. .venv/bin/activate && $(1)
 endef
 
 deps:
@@ -19,4 +19,4 @@ lint:
 test:
 	$(call python_venv,molecule test)
 
-.PHONY: ci deps lint test
+.PHONY: ci deps deps-upgrade lint test
