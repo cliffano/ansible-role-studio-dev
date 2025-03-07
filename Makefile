@@ -8,6 +8,10 @@ deps:
 	python3 -m venv .venv
 	$(call python_venv,python3 -m pip install -r requirements.txt)
 
+deps-upgrade:
+	$(call python_venv,python3 -m pip install -r requirements-dev.txt)
+	$(call python_venv,pip-compile --upgrade)
+
 lint:
 	$(call python_venv,molecule lint)
 
