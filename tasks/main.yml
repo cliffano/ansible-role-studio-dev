@@ -1,4 +1,16 @@
 ---
+- name: "Get the status of profile file"
+  ansible.builtin.stat:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+  register: profile_file
+
+- name: Ensure profile file exists
+  ansible.builtin.copy:
+    content: ""
+    dest: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    mode: '0644'
+  when: not profile_file.stat.exists
+
 - name: Ensure Oh My Zsh directory exists
   ansible.builtin.file:
     path: "{{ sdev_ohmyzsh_dir }}"
@@ -10,6 +22,14 @@
     path: "{{ sdev_ohmyzsh_dir }}/custom"
     state: directory
     mode: '0755'
+
+- name: Set TERM export (required by Bullet Train theme)
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^export TERM"
+    line: "export TERM='xterm-256color'"
 
 - name: "Get the status of Oh My Zsh git aliases custom file"
   ansible.builtin.stat:

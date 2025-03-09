@@ -1,5 +1,17 @@
 import pytest
 
+def test_profile(host):
+
+    profile_file = host.file("/tmp/.zprofile")
+    assert profile_file.exists
+    assert profile_file.is_file
+    assert profile_file.mode == 0o644
+
+def test_term_export(host):
+
+    profile_file = host.file("/tmp/.zprofile")
+    assert "export TERM='xterm-256color'" in profile_file.content_string
+
 def test_git_aliases(host):
 
     git_aliases_file = host.file("/tmp/.oh-my-zsh/custom/aliases-git.zsh")

@@ -1,4 +1,6 @@
 ---
+sdev_home_dir: /tmp
+sdev_profile_file: .zprofile
 sdev_ohmyzsh_dir: /tmp/.oh-my-zsh
 sdev_git_aliases_file: aliases-git.zsh
 sdev_gnupg_dir: /tmp/.gnupg
