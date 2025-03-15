@@ -1,11 +1,11 @@
-ci: clean deps lint test
+ci: clean stage deps lint test
 
 define python_venv
 	. .venv/bin/activate && $(1)
 endef
 
 clean:
-	rm -rf stage/
+	rm -rf stage/ /tmp/stage/
 
 rmdeps:
 	rm -rf .venv/
@@ -22,7 +22,8 @@ deps-upgrade:
 lint:
 	$(call python_venv,molecule lint)
 
-test:
+test: stage
+	cp -R test-fixtures/ /tmp/stage/
 	$(call python_venv,molecule test)
 
-.PHONY: ci clean rmdeps deps deps-upgrade lint test
+.PHONY: ci clean stage rmdeps deps deps-upgrade lint test

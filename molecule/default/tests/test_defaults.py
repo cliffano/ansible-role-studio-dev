@@ -12,6 +12,12 @@ def test_term_export(host):
     profile_file = host.file("/tmp/.zprofile")
     assert "export TERM='xterm-256color'" in profile_file.content_string
 
+def test_gitconfig(host):
+
+    gitconfig_file = host.file("/tmp/.gitconfig")
+    assert gitconfig_file.exists
+    assert gitconfig_file.is_symlink
+
 def test_git_aliases(host):
 
     git_aliases_file = host.file("/tmp/.oh-my-zsh/custom/aliases-git.zsh")
@@ -20,6 +26,7 @@ def test_git_aliases(host):
     assert git_aliases_file.mode == 0o644
     assert "alias gaa=git add -A" in git_aliases_file.content_string
     assert "alias gta=git tag -a" in git_aliases_file.content_string
+
 
 def test_gpg_agent_conf(host):
 

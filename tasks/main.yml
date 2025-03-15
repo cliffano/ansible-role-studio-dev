@@ -11,15 +11,22 @@
     mode: '0644'
   when: not profile_file.stat.exists
 
+- name: Set gitconfig symlink
+  ansible.builtin.file:
+    src: "{{ sdev_gitconfig_link_src }}"
+    dest: "{{ sdev_home_dir }}/{{ sdev_gitconfig_file }}"
+    state: link
+    force: yes
+
 - name: Ensure Oh My Zsh directory exists
   ansible.builtin.file:
-    path: "{{ sdev_ohmyzsh_dir }}"
+    path: "{{ sdev_home_dir }}/.oh-my-zsh"
     state: directory
     mode: '0755'
 
 - name: Ensure Oh My Zsh custom directory exists
   ansible.builtin.file:
-    path: "{{ sdev_ohmyzsh_dir }}/custom"
+    path: "{{ sdev_home_dir }}/.oh-my-zsh/custom"
     state: directory
     mode: '0755'
 
@@ -33,19 +40,19 @@
 
 - name: "Get the status of Oh My Zsh git aliases custom file"
   ansible.builtin.stat:
-    path: "{{ sdev_ohmyzsh_dir }}/custom/{{ sdev_git_aliases_file }}"
+    path: "{{ sdev_home_dir }}/.oh-my-zsh/custom/{{ sdev_git_aliases_file }}"
   register: ohmyzsh_gitaliases_file
 
 - name: Ensure Oh My Zsh git aliases custom file exists
   ansible.builtin.copy:
     content: ""
-    dest: "{{ sdev_ohmyzsh_dir }}/custom/{{ sdev_git_aliases_file }}"
+    dest: "{{ sdev_home_dir }}/.oh-my-zsh/custom/{{ sdev_git_aliases_file }}"
     mode: '0644'
   when: not ohmyzsh_gitaliases_file.stat.exists
 
 - name: Create aliases for git commands
   ansible.builtin.lineinfile:
-    path: "{{ sdev_ohmyzsh_dir }}/custom/{{ sdev_git_aliases_file }}"
+    path: "{{ sdev_home_dir }}/.oh-my-zsh/custom/{{ sdev_git_aliases_file }}"
     state: present
     backup: no
     regexp: "^alias {{ item.key }}="
@@ -54,25 +61,25 @@
 
 - name: Ensure GnuPG directory exists
   ansible.builtin.file:
-    path: "{{ sdev_gnupg_dir }}"
+    path: "{{ sdev_home_dir }}/.gnupg"
     state: directory
     mode: '0755'
 
 - name: "Get the status of GPG agent configuration file"
   ansible.builtin.stat:
-    path: "{{ sdev_gnupg_dir }}/{{ sdev_gpgagent_conf_file }}"
+    path: "{{ sdev_home_dir }}/.gnupg/{{ sdev_gpgagent_conf_file }}"
   register: gpgagent_conf_file
 
 - name: Ensure GPG agent configuration file exists
   ansible.builtin.copy:
     content: ""
-    dest: "{{ sdev_gnupg_dir }}/{{ sdev_gpgagent_conf_file }}"
+    dest: "{{ sdev_home_dir }}/.gnupg/{{ sdev_gpgagent_conf_file }}"
     mode: '0644'
   when: not gpgagent_conf_file.stat.exists
 
 - name: Set pinentry-program required by git for GPG signing
   ansible.builtin.lineinfile:
-    path: "{{ sdev_gnupg_dir }}/{{ sdev_gpgagent_conf_file }}"
+    path: "{{ sdev_home_dir }}/.gnupg/{{ sdev_gpgagent_conf_file }}"
     state: present
     backup: no
     regexp: "^{{ item }}="
