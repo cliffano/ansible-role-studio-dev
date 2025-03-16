@@ -1,5 +1,6 @@
 ---
-dependencies: []
+collections:
+  - community.general
 
 galaxy_info:
   namespace: cliffano

@@ -6,3 +6,5 @@ sdev_git_aliases_file: aliases-git.zsh
 sdev_gitconfig_link_src: /tmp/stage/test-fixtures/.gitconfig
 sdev_gitconfig_file: .gitconfig
 sdev_gpgagent_conf_file: gpg-agent.conf
+sdev_npm_packages:
+  - repoman

@@ -30,6 +30,18 @@
     state: directory
     mode: '0755'
 
+- name: Ensure Oh My Zsh themes directory exists
+  ansible.builtin.file:
+    path: "{{ sdev_home_dir }}/.oh-my-zsh/themes"
+    state: directory
+    mode: '0755'
+
+- name: Download Oh My Zsh Bullet Train theme
+  ansible.builtin.get_url:
+    url: http://raw.github.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme
+    dest: "{{ sdev_home_dir }}/.oh-my-zsh/themes/bullet-train.zsh-theme"
+    mode: '0644'
+
 - name: Set TERM export (required by Bullet Train theme)
   ansible.builtin.lineinfile:
     path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
@@ -88,3 +100,10 @@
     - pinentry-program /usr/local/bin/pinentry-mac
     - default-cache-ttl
     - max-cache-ttl 28800
+
+- name: Ensure global node packages are installed
+  community.general.npm:
+    name: "{{ item }}"
+    global: yes
+    state: present
+  loop: "{{ sdev_npm_packages }}"

@@ -23,7 +23,7 @@ lint:
 	$(call python_venv,molecule lint)
 
 test: stage
-	cp -R test-fixtures/ /tmp/stage/
+	cp -R test-fixtures /tmp/stage/
 	$(call python_venv,molecule test)
 
 .PHONY: ci clean stage rmdeps deps deps-upgrade lint test
