@@ -2,9 +2,16 @@
 # sdev_home_dir: "{{ lookup('ansible.builtin.env', 'HOME') }}"
 sdev_home_dir: /tmp
 sdev_profile_file: .zprofile
+sdev_ssh_config_link_src: /tmp/stage/sshconfig
+sdev_ssh_config_file: config
+sdev_ssh_private_key_link_src: /tmp/stage/id_ed25519
+sdev_ssh_public_key_link_src: /tmp/stage/id_ed25519.pub
+sdev_sshkey_name: id_ed25519
 sdev_git_aliases_file: aliases-git.zsh
-sdev_gitconfig_link_src: /tmp/stage/test-fixtures/.gitconfig
+sdev_gitconfig_link_src: /tmp/stage/.gitconfig
 sdev_gitconfig_file: .gitconfig
 sdev_gpgagent_conf_file: gpg-agent.conf
 sdev_npm_packages:
   - repoman
+sdev_workspaces:
+  - control

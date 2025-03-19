@@ -7,6 +7,24 @@ def test_profile(host):
     assert profile_file.is_file
     assert profile_file.mode == 0o644
 
+def test_ssh_config(host):
+
+    sshconfig_file = host.file("/tmp/.ssh/config")
+    assert sshconfig_file.exists
+    assert sshconfig_file.is_symlink
+
+def test_ssh_private_key(host):
+
+    sshconfig_file = host.file("/tmp/.ssh/id_ed25519")
+    assert sshconfig_file.exists
+    assert sshconfig_file.is_symlink
+
+def test_ssh_public_key(host):
+
+    sshconfig_file = host.file("/tmp/.ssh/id_ed25519.pub")
+    assert sshconfig_file.exists
+    assert sshconfig_file.is_symlink
+
 def test_bullet_train_theme(host):
 
     theme_file = host.file("/tmp/.oh-my-zsh/themes/bullet-train.zsh-theme")
