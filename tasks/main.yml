@@ -1,4 +1,8 @@
 ---
+########################################
+# Profile
+########################################
+
 - name: "Get the status of profile file"
   ansible.builtin.stat:
     path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
@@ -10,6 +14,33 @@
     dest: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
     mode: '0644'
   when: not profile_file.stat.exists
+
+########################################
+# Workspaces
+########################################
+
+- name: Ensure workspace directories exist
+  ansible.builtin.file:
+    path: "{{ sdev_home_dir }}/dev/workspace-{{ item }}"
+    state: directory
+    mode: '0755'
+  with_items: "{{ sdev_workspaces }}"
+
+########################################
+# Repoman
+########################################
+
+- name: Set Repoman configuration for main workspace repositories
+  ansible.builtin.file:
+    src: "{{ sdev_repoman_link_src }}/{{ item }}.json"
+    dest: "{{ sdev_home_dir }}/dev/workspace-{{ item }}/.repoman.json"
+    state: link
+    force: yes
+  with_items: "{{ sdev_workspaces }}"
+
+########################################
+# SSH
+########################################
 
 - name: Ensure SSH config directory exists
   ansible.builtin.file:
@@ -38,12 +69,29 @@
     state: link
     force: yes
 
+- name: Set workspaces SSH configuration include
+  ansible.builtin.file:
+    src: "{{ sdev_ssh_config_workspace_link_src }}/{{ item }}.ssh_config"
+    dest: "/etc/ssh/ssh_config.d/config-{{ item }}"
+    state: link
+    force: yes
+  become: yes
+  with_items: "{{ sdev_workspaces }}"
+
+########################################
+# Git
+########################################
+
 - name: Set gitconfig symlink
   ansible.builtin.file:
     src: "{{ sdev_gitconfig_link_src }}"
     dest: "{{ sdev_home_dir }}/{{ sdev_gitconfig_file }}"
     state: link
     force: yes
+
+########################################
+# Oh My Zsh
+########################################
 
 - name: Ensure Oh My Zsh directory exists
   ansible.builtin.file:
@@ -98,6 +146,10 @@
     line: "alias {{ item.key }}={{ item.value }}"
   loop: "{{ git_aliases | dict2items }}"
 
+########################################
+# GnuPG
+########################################
+
 - name: Ensure GnuPG directory exists
   ansible.builtin.file:
     path: "{{ sdev_home_dir }}/.gnupg"
@@ -127,6 +179,10 @@
     - pinentry-program /usr/local/bin/pinentry-mac
     - default-cache-ttl
     - max-cache-ttl 28800
+
+########################################
+# node
+########################################
 
 - name: Ensure global node packages are installed
   community.general.npm:

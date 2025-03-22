@@ -7,6 +7,19 @@ def test_profile(host):
     assert profile_file.is_file
     assert profile_file.mode == 0o644
 
+def test_workspace(host):
+
+    workspace_dir = host.file("/tmp/dev/workspace-control")
+    assert workspace_dir.exists
+    assert workspace_dir.is_directory
+    assert workspace_dir.mode == 0o755
+
+def test_repoman(host):
+
+    repoman_file = host.file("/tmp/dev/workspace-control/.repoman.json")
+    assert repoman_file.exists
+    assert repoman_file.is_symlink
+
 def test_ssh_config(host):
 
     sshconfig_file = host.file("/tmp/.ssh/config")
@@ -22,6 +35,12 @@ def test_ssh_private_key(host):
 def test_ssh_public_key(host):
 
     sshconfig_file = host.file("/tmp/.ssh/id_ed25519.pub")
+    assert sshconfig_file.exists
+    assert sshconfig_file.is_symlink
+
+def test_workspace_ssh_config(host):
+
+    sshconfig_file = host.file("/etc/ssh/ssh_config.d/config-control")
     assert sshconfig_file.exists
     assert sshconfig_file.is_symlink
 

@@ -7,6 +7,9 @@ endef
 clean:
 	rm -rf stage/ /tmp/stage/
 
+stage:
+	mkdir -p stage/ /tmp/stage/
+
 rmdeps:
 	rm -rf .venv/
 
@@ -23,7 +26,8 @@ lint:
 	$(call python_venv,molecule lint)
 
 test: stage
-	cp -R test-fixtures /tmp/stage/
+	cp -R test-fixtures/.gitconfig /tmp/stage/
+	cp -R test-fixtures/* /tmp/stage/
 	$(call python_venv,molecule test)
 
 .PHONY: ci clean stage rmdeps deps deps-upgrade lint test
