@@ -17,3 +17,5 @@ sdev_npm_packages:
   - repoman
 sdev_workspaces:
   - control
+sdev_docker_images:
+  - cliffano/studio

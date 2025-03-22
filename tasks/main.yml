@@ -190,3 +190,15 @@
     global: yes
     state: present
   loop: "{{ sdev_npm_packages }}"
+
+########################################
+# Docker
+########################################
+
+# NOTE: if you hit the error "Error connecting: Error while fetching server API version'
+#       that's because Docker isn't running
+- name: Pull Docker images
+  community.docker.docker_image:
+    name: "{{ item }}"
+    source: pull
+  loop: "{{ sdev_docker_images }}"

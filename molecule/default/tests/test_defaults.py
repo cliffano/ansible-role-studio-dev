@@ -86,3 +86,8 @@ def test_npm_packages(host):
 
     npm_list = host.run("npm list -g --depth=0")
     assert 'repoman' in npm_list.stdout
+
+def test_docker_images(host):
+
+    docker_list = host.run("docker images")
+    assert 'cliffano/studio' in docker_list.stdout
