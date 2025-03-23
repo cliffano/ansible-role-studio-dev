@@ -14,6 +14,14 @@ def test_workspace(host):
     assert workspace_dir.is_directory
     assert workspace_dir.mode == 0o755
 
+def test_workspace_aliases(host):
+
+    workspace_aliases_file = host.file("/tmp/.zprofile")
+    assert workspace_aliases_file.exists
+    assert workspace_aliases_file.is_file
+    assert workspace_aliases_file.mode == 0o644
+    assert "alias cd-control='cd /tmp/dev/workspace-control/'" in workspace_aliases_file.content_string
+
 def test_repoman(host):
 
     repoman_file = host.file("/tmp/dev/workspace-control/.repoman.json")
@@ -70,7 +78,6 @@ def test_git_aliases(host):
     assert git_aliases_file.mode == 0o644
     assert "alias gaa=git add -A" in git_aliases_file.content_string
     assert "alias gta=git tag -a" in git_aliases_file.content_string
-
 
 def test_gpg_agent_conf(host):
 
