@@ -18,4 +18,4 @@ sdev_npm_packages:
 sdev_workspaces:
   - control
 sdev_docker_images:
-  - cliffano/studio
+  - { id: 'studio', image: 'cliffano/studio', env_file: '/tmp/stage/.env', home_dir: 'root' }

@@ -208,6 +208,33 @@
 #       that's because Docker isn't running
 - name: Pull Docker images
   community.docker.docker_image:
-    name: "{{ item }}"
+    name: "{{ item.image }}"
     source: pull
+  loop: "{{ sdev_docker_images }}"
+
+- name: Set Docker run aliases
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^alias drn-{{ item.id }}=.*$"
+    line: "alias drn-{{ item.id }}='docker run --name {{ item.id }} --env-file {{ item.env_file }} --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v {{ sdev_home_dir }}/.aws:{{ item.home_dir }}/.aws -v {{ sdev_home_dir }}/.gitconfig:{{ item.home_dir }}/.gitconfig -v {{ sdev_home_dir }}/.ssh:{{ item.home_dir }}/.ssh -v `pwd`:/opt/workspace -i -t {{ item.image }}'"
+  loop: "{{ sdev_docker_images }}"
+
+- name: Set Docker attach aliases
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^alias dxt-{{ item.id }}=.*$"
+    line: "alias dxt-{{ item.id }}='docker exec -it {{ item.id }}'"
+  loop: "{{ sdev_docker_images }}"
+
+- name: Set Docker one-off run aliases
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^alias drno-{{ item.id }}=.*$"
+    line: "alias drno-{{ item.id }}='docker run --rm --env-file {{ item.env_file }} --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v {{ sdev_home_dir }}/.aws:{{ item.home_dir }}/.aws -v {{ sdev_home_dir }}/.gitconfig:{{ item.home_dir }}/.gitconfig -v {{ sdev_home_dir }}/.ssh:{{ item.home_dir }}/.ssh -v `pwd`:/opt/workspace -i -t {{ item.image }}'"
   loop: "{{ sdev_docker_images }}"

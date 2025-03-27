@@ -98,3 +98,10 @@ def test_docker_images(host):
 
     docker_list = host.run("docker images")
     assert 'cliffano/studio' in docker_list.stdout
+
+def test_docker_aliases(host):
+
+    profile_file = host.file("/tmp/.zprofile")
+    assert "alias drn-studio='docker run --name studio --env-file /tmp/stage/.env --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.aws:root/.aws -v /tmp/.gitconfig:root/.gitconfig -v /tmp/.ssh:root/.ssh -v `pwd`:/opt/workspace -i -t cliffano/studio'" in profile_file.content_string
+    assert "dxt-studio='docker exec -it studio'" in profile_file.content_string
+    assert "drno-studio='docker run --rm --env-file /tmp/stage/.env --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.aws:root/.aws -v /tmp/.gitconfig:root/.gitconfig -v /tmp/.ssh:root/.ssh -v `pwd`:/opt/workspace -i -t cliffano/studio'" in profile_file.content_string
