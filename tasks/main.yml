@@ -16,7 +16,7 @@
       - pinentry-mac
       - python
       - telnet
-  when: ansible_facts and 'platform' in ansible_facts and ansible_facts['platform'] == 'Darwin'
+  when: ansible_facts and 'os_family' in ansible_facts and ansible_facts['os_family'] == 'Darwin'
 
 ########################################
 # Profile
