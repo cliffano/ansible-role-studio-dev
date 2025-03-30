@@ -1,5 +1,23 @@
 ---
 ########################################
+# OS Packages
+########################################
+
+- name: Install Homebrew packages (Mac)
+  ansible.builtin.import_role:
+    name: geerlingguy.mac.homebrew
+  vars:
+    homebrew_installed_packages:
+      - colima
+      - docker
+      - gpg
+      - node
+      - pinentry-mac
+      - python
+      - telnet
+  when: ansible_facts and 'platform' in ansible_facts and ansible_facts['platform'] == 'Darwin'
+
+########################################
 # Profile
 ########################################
 
@@ -84,7 +102,6 @@
     dest: "/etc/ssh/ssh_config.d/config-{{ item }}"
     state: link
     force: yes
-  become: yes
   loop: "{{ sdev_workspaces }}"
 
 ########################################
@@ -100,6 +117,8 @@
 
 ########################################
 # Oh My Zsh
+# Note: This section requires Oh My Zsh to be installed on userland
+#       e.g. by using  gantsign.oh-my-zsh role
 ########################################
 
 - name: Ensure Oh My Zsh directory exists

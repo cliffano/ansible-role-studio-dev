@@ -1,5 +1,6 @@
 ---
 # sdev_home_dir: "{{ lookup('ansible.builtin.env', 'HOME') }}"
+sdev_username: cliffano
 sdev_home_dir: /tmp
 sdev_profile_file: .zprofile
 sdev_repoman_link_src: /tmp/stage/repoman
