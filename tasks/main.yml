@@ -233,12 +233,14 @@
 # Docker
 ########################################
 
-# NOTE: if you hit the error "Error connecting: Error while fetching server API version'
+# NOTE: If you hit the error: "Error connecting: Error while fetching server API version'
 #       that's because Docker isn't running
+#       If you hit additional error: "No such file or directory"
+#       that's likely because /var/run/docker.sock isn't initialised
 - name: Pull Docker images
-  community.docker.docker_image:
+  community.docker.docker_image_pull:
     name: "{{ item.image }}"
-    source: pull
+    pull: not_present
   loop: "{{ sdev_docker_images }}"
 
 - name: Set Docker run aliases
@@ -267,3 +269,25 @@
     regexp: "^alias drno-{{ item.id }}=.*$"
     line: "alias drno-{{ item.id }}='docker run --rm --env-file {{ item.env_file }} --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v {{ sdev_home_dir }}/.aws:{{ item.home_dir }}/.aws -v {{ sdev_home_dir }}/.gitconfig:{{ item.home_dir }}/.gitconfig -v {{ sdev_home_dir }}/.ssh:{{ item.home_dir }}/.ssh -v `pwd`:/opt/workspace -i -t {{ item.image }}'"
   loop: "{{ sdev_docker_images }}"
+
+- name: Set Docker one-off run aliases
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^alias drno-{{ item.id }}=.*$"
+    line: "alias drno-{{ item.id }}='docker run --rm --env-file {{ item.env_file }} --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v {{ sdev_home_dir }}/.aws:{{ item.home_dir }}/.aws -v {{ sdev_home_dir }}/.gitconfig:{{ item.home_dir }}/.gitconfig -v {{ sdev_home_dir }}/.ssh:{{ item.home_dir }}/.ssh -v `pwd`:/opt/workspace -i -t {{ item.image }}'"
+  loop: "{{ sdev_docker_images }}"
+
+########################################
+# Colima
+########################################
+
+- name: Set Colima aliases
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^alias co5-{{ item.id }}=.*$"
+    line: "alias co5-{{ item.id }}='rm /var/run/docker.sock && ln -s {{ sdev_home_dir }}/.colima/{{ item.id }}/docker.sock /var/run/docker.sock && colima start {{ item.id }}'"
+  loop: "{{ sdev_colima_networks }}"
