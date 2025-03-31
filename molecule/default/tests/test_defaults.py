@@ -7,6 +7,11 @@ def test_profile(host):
     assert profile_file.is_file
     assert profile_file.mode == 0o644
 
+def test_homebrew_bin_export(host):
+
+    profile_file = host.file("/tmp/.zprofile")
+    assert "export PATH=$PATH:/opt/homebrew/bin" in profile_file.content_string
+
 def test_workspace(host):
 
     workspace_dir = host.file("/tmp/dev/workspace-control")

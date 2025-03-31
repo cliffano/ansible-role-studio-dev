@@ -1,6 +1,22 @@
 ---
 ########################################
-# OS Packages
+# Profile
+########################################
+
+- name: "Get the status of profile file"
+  ansible.builtin.stat:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+  register: profile_file
+
+- name: Ensure profile file exists
+  ansible.builtin.copy:
+    content: ""
+    dest: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    mode: '0644'
+  when: not profile_file.stat.exists
+
+########################################
+# Homebrew
 ########################################
 
 - name: Install Homebrew packages (Mac)
@@ -19,21 +35,13 @@
       - 1password-cli
   when: ansible_facts and 'os_family' in ansible_facts and ansible_facts['os_family'] == 'Darwin'
 
-########################################
-# Profile
-########################################
-
-- name: "Get the status of profile file"
-  ansible.builtin.stat:
+- name: Add Homebrew bin to PATH
+  ansible.builtin.lineinfile:
     path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
-  register: profile_file
-
-- name: Ensure profile file exists
-  ansible.builtin.copy:
-    content: ""
-    dest: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
-    mode: '0644'
-  when: not profile_file.stat.exists
+    state: present
+    backup: no
+    regexp: "^export PATH=.*:/opt/homebrew/bin"
+    line: "export PATH=$PATH:/opt/homebrew/bin"
 
 ########################################
 # Workspaces
