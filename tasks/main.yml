@@ -249,7 +249,7 @@
     state: present
     backup: no
     regexp: "^alias drn-{{ item.id }}=.*$"
-    line: "alias drn-{{ item.id }}='docker run --name {{ item.id }} --env-file {{ item.env_file }} --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v {{ sdev_home_dir }}/.aws:{{ item.home_dir }}/.aws -v {{ sdev_home_dir }}/.gitconfig:{{ item.home_dir }}/.gitconfig -v {{ sdev_home_dir }}/.ssh:{{ item.home_dir }}/.ssh -v `pwd`:/opt/workspace -i -t {{ item.image }}'"
+    line: "alias drn-{{ item.id }}='docker run --name {{ item.id }} --env-file {{ item.env_file }} --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v {{ sdev_home_dir }}/.aws:/{{ item.home_dir }}/.aws -v {{ sdev_home_dir }}/.gitconfig:/{{ item.home_dir }}/.gitconfig -v {{ sdev_home_dir }}/.ssh:/{{ item.home_dir }}/.ssh -v `pwd`:/opt/workspace -i -t {{ item.image }}'"
   loop: "{{ sdev_docker_images }}"
 
 - name: Set Docker attach aliases
@@ -267,7 +267,7 @@
     state: present
     backup: no
     regexp: "^alias drno-{{ item.id }}=.*$"
-    line: "alias drno-{{ item.id }}='docker run --rm --env-file {{ item.env_file }} --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v {{ sdev_home_dir }}/.aws:{{ item.home_dir }}/.aws -v {{ sdev_home_dir }}/.gitconfig:{{ item.home_dir }}/.gitconfig -v {{ sdev_home_dir }}/.ssh:{{ item.home_dir }}/.ssh -v `pwd`:/opt/workspace -i -t {{ item.image }}'"
+    line: "alias drno-{{ item.id }}='docker run --rm --env-file {{ item.env_file }} --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v {{ sdev_home_dir }}/.aws:/{{ item.home_dir }}/.aws -v {{ sdev_home_dir }}/.gitconfig:/{{ item.home_dir }}/.gitconfig -v {{ sdev_home_dir }}/.ssh:/{{ item.home_dir }}/.ssh -v `pwd`:/opt/workspace -i -t {{ item.image }}'"
   loop: "{{ sdev_docker_images }}"
 
 - name: Set Docker one-off run aliases
@@ -276,7 +276,7 @@
     state: present
     backup: no
     regexp: "^alias drno-{{ item.id }}=.*$"
-    line: "alias drno-{{ item.id }}='docker run --rm --env-file {{ item.env_file }} --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v {{ sdev_home_dir }}/.aws:{{ item.home_dir }}/.aws -v {{ sdev_home_dir }}/.gitconfig:{{ item.home_dir }}/.gitconfig -v {{ sdev_home_dir }}/.ssh:{{ item.home_dir }}/.ssh -v `pwd`:/opt/workspace -i -t {{ item.image }}'"
+    line: "alias drno-{{ item.id }}='docker run --rm --env-file {{ item.env_file }} --workdir /opt/workspace -v /var/run/docker.sock:/var/run/docker.sock -v {{ sdev_home_dir }}/.aws:/{{ item.home_dir }}/.aws -v {{ sdev_home_dir }}/.gitconfig:/{{ item.home_dir }}/.gitconfig -v {{ sdev_home_dir }}/.ssh:/{{ item.home_dir }}/.ssh -v `pwd`:/opt/workspace -i -t {{ item.image }}'"
   loop: "{{ sdev_docker_images }}"
 
 ########################################
