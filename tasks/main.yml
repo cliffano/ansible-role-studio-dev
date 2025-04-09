@@ -181,7 +181,7 @@
     state: present
     backup: no
     regexp: "^alias {{ item.key }}="
-    line: "alias {{ item.key }}={{ item.value }}"
+    line: "alias {{ item.key }}='{{ item.value }}'"
   loop: "{{ git_aliases | dict2items }}"
 
 ########################################
