@@ -51,7 +51,7 @@
     path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
     state: present
     backup: no
-    regexp: "^alias {{ item }}="
+    regexp: "^alias cd-{{ item }}="
     line: "alias cd-{{ item }}='cd {{ sdev_home_dir }}/dev/workspace-{{ item }}/'"
   loop: "{{ sdev_workspaces }}"
 
@@ -66,6 +66,19 @@
     state: link
     force: yes
   loop: "{{ sdev_workspaces }}"
+
+########################################
+# VSCode
+########################################
+
+- name: Set VSCode workspace aliases
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^alias code-{{ item }}="
+    line: "alias code-{{ item }}='cd {{ sdev_home_dir }}/dev/workspace-control/config/workspace-config/vscode/{{ item }}.code-workspace'"
+  loop: "{{ sdev_vscode_workspaces }}"
 
 ########################################
 # SSH
