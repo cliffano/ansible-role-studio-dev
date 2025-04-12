@@ -279,6 +279,6 @@
     path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
     state: present
     backup: no
-    regexp: "^alias co5-{{ item.id }}=.*$"
-    line: "alias co5-{{ item.id }}='rm -f /var/run/docker.sock && ln -s {{ sdev_home_dir }}/.colima/{{ item.id }}/docker.sock /var/run/docker.sock && colima start {{ item.id }}'"
+    regexp: "^alias co5-{{ item }}=.*$"
+    line: "alias co5-{{ item }}='rm -f /var/run/docker.sock && ln -s {{ sdev_home_dir }}/.colima/{{ item }}/docker.sock /var/run/docker.sock && colima start {{ item }}'"
   loop: "{{ sdev_colima_networks }}"
