@@ -24,7 +24,7 @@ git_aliases:
   gst: 'git stash'
   gta: 'git tag -a'
 
-homebrew_installed_packages:
+homebrew_packages:
   - colima
   - docker
   - gpg
