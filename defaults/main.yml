@@ -21,4 +21,4 @@ sdev_workspaces:
 sdev_colima_networks:
   - { id: 'studio' }
 sdev_docker_images:
-  - { id: 'studio', image: 'cliffano/studio', env_file: '/tmp/stage/.env', home_dir: 'root' }
+  - { id: 'studio', image: 'cliffano/studio', env_file: '/tmp/stage/.env', home_dir: 'root', entrypoint: '/bin/bash' }
