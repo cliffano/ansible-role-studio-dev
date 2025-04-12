@@ -24,15 +24,7 @@
     name: geerlingguy.mac.homebrew
   vars:
     homebrew_prefix: /opt/homebrew
-    homebrew_installed_packages:
-      - colima
-      - docker
-      - gpg
-      - node
-      - pinentry-mac
-      - python
-      - telnet
-      - 1password-cli
+    homebrew_installed_packages: "{{ homebrew_packages | dict2items }}"
   when: ansible_facts and 'os_family' in ansible_facts and ansible_facts['os_family'] == 'Darwin'
 
 - name: Add Homebrew bin to PATH

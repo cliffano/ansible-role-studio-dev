@@ -27,8 +27,9 @@ git_aliases:
 homebrew_installed_packages:
   - colima
   - docker
-  - mas
-  - node
   - gpg
+  - node
   - pinentry-mac
+  - python
   - telnet
+  - 1password-cli
