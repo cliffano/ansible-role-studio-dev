@@ -289,5 +289,5 @@
     state: present
     backup: no
     regexp: "^alias co5-{{ item.id }}=.*$"
-    line: "alias co5-{{ item.id }}='rm /var/run/docker.sock && ln -s {{ sdev_home_dir }}/.colima/{{ item.id }}/docker.sock /var/run/docker.sock && colima start {{ item.id }}'"
+    line: "alias co5-{{ item.id }}='rm -f /var/run/docker.sock && ln -s {{ sdev_home_dir }}/.colima/{{ item.id }}/docker.sock /var/run/docker.sock && colima start {{ item.id }}'"
   loop: "{{ sdev_colima_networks }}"
