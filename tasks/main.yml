@@ -77,7 +77,7 @@
     state: present
     backup: no
     regexp: "^alias code-{{ item }}="
-    line: "alias code-{{ item }}='cd {{ sdev_home_dir }}/dev/workspace-control/config/workspace-config/vscode/{{ item }}.code-workspace'"
+    line: "alias code-{{ item }}='code {{ sdev_home_dir }}/dev/workspace-control/config/workspace-config/vscode/{{ item }}.code-workspace'"
   loop: "{{ sdev_vscode_workspaces }}"
 
 ########################################
