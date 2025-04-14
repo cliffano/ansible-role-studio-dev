@@ -1,5 +1,5 @@
 {
   "ryokan": {
-    "url": "git://github.com/cliffano/ryokan.git"
+    "url": "ssh://github.com/cliffano/ryokan.git"
   }
 }

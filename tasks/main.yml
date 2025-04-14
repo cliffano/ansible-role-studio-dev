@@ -97,6 +97,19 @@
     state: link
     force: yes
 
+- name: Ensure SSH config include directory exists
+  ansible.builtin.file:
+    path: "{{ sdev_home_dir }}/.ssh/config.d"
+    state: directory
+    mode: '0755'
+
+- name: Ensure SSH config include symlink
+  ansible.builtin.file:
+    src: "{{ sdev_ssh_configd_link_src }}"
+    dest: "{{ sdev_home_dir }}/.ssh/config.d/{{ sdev_ssh_configd_file }}"
+    state: link
+    force: yes
+
 - name: Ensure SSH private key symlink
   ansible.builtin.file:
     src: "{{ sdev_ssh_private_key_link_src }}"
@@ -110,14 +123,6 @@
     dest: "{{ sdev_home_dir }}/.ssh/{{ sdev_sshkey_name }}.pub"
     state: link
     force: yes
-
-- name: Set workspaces SSH configuration include
-  ansible.builtin.file:
-    src: "{{ sdev_ssh_config_workspace_link_src }}/{{ item }}.ssh_config"
-    dest: "/etc/ssh/ssh_config.d/config-{{ item }}"
-    state: link
-    force: yes
-  loop: "{{ sdev_workspaces }}"
 
 ########################################
 # Git

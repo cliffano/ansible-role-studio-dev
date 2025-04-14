@@ -33,13 +33,19 @@ def test_repoman(host):
 def test_vscode_workspace_aliases(host):
 
     profile_file = host.file("/tmp/.zprofile")
-    assert "alias code-studio-control='cd /tmp/dev/workspace-control/config/workspace-config/vscode/studio-control.code-workspace'" in profile_file.content_string
+    assert "alias code-control='code /tmp/dev/workspace-control/config/workspace-config/vscode/control.code-workspace'" in profile_file.content_string
 
 def test_ssh_config(host):
 
     sshconfig_file = host.file("/tmp/.ssh/config")
     assert sshconfig_file.exists
     assert sshconfig_file.is_symlink
+
+def test_ssh_configd(host):
+
+    sshconfigd_file = host.file("/tmp/.ssh/config.d/configd")
+    assert sshconfigd_file.exists
+    assert sshconfigd_file.is_symlink
 
 def test_ssh_private_key(host):
 
@@ -50,12 +56,6 @@ def test_ssh_private_key(host):
 def test_ssh_public_key(host):
 
     sshconfig_file = host.file("/tmp/.ssh/id_ed25519.pub")
-    assert sshconfig_file.exists
-    assert sshconfig_file.is_symlink
-
-def test_workspace_ssh_config(host):
-
-    sshconfig_file = host.file("/etc/ssh/ssh_config.d/config-control")
     assert sshconfig_file.exists
     assert sshconfig_file.is_symlink
 
