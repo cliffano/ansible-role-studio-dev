@@ -32,4 +32,5 @@ homebrew_packages:
   - pinentry-mac
   - python
   - telnet
+  - yq
   - 1password-cli
