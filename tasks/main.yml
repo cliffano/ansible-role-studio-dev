@@ -32,8 +32,8 @@
     path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
     state: present
     backup: no
-    regexp: "^export PATH=.*:/opt/homebrew/bin"
-    line: "export PATH=$PATH:/opt/homebrew/bin"
+    regexp: "^export PATH=/opt/homebrew/bin:.*"
+    line: "export PATH=/opt/homebrew/bin:$PATH"
 
 ########################################
 # Workspaces
