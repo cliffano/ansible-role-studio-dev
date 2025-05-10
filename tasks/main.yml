@@ -36,6 +36,26 @@
     line: "export PATH=/opt/homebrew/bin:$PATH"
 
 ########################################
+# Python
+########################################
+
+- name: Ensure Poetry directory exists
+  ansible.builtin.file:
+    path: "{{ sdev_poetry_dir }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ sdev_username }}"
+  become: yes
+
+- name: Add relative VirtualEnv bin and Poetry bin to PATH
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^export PATH=.venv/bin:{{ sdev_poetry_dir }}/bin::.*"
+    line: "export PATH=.venv/bin:{{ sdev_poetry_dir }}/bin:$PATH"
+
+########################################
 # Workspaces
 ########################################
 

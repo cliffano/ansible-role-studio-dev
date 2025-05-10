@@ -14,6 +14,18 @@ def test_homebrew_bin_export(host):
 
 def test_workspace(host):
 
+    poetry_dir = host.file("/tmp/poetry")
+    assert poetry_dir.exists
+    assert poetry_dir.is_directory
+    assert poetry_dir.mode == 0o755
+
+def test_python_export(host):
+
+    profile_file = host.file("/tmp/.zprofile")
+    assert "export PATH=.venv/bin:/tmp/poetry/bin:$PATH" in profile_file.content_string
+
+def test_workspace(host):
+
     workspace_dir = host.file("/tmp/dev/workspace-control")
     assert workspace_dir.exists
     assert workspace_dir.is_directory

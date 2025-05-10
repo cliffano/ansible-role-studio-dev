@@ -3,6 +3,7 @@
 sdev_username: cliffano
 sdev_home_dir: /tmp
 sdev_profile_file: .zprofile
+sdev_poetry_dir: /tmp/poetry
 sdev_repoman_link_src: /tmp/stage/repoman
 sdev_ssh_config_link_src: /tmp/stage/sshconfig
 sdev_ssh_config_file: config
