@@ -1,6 +1,6 @@
 ---
 # sdev_home_dir: "{{ lookup('ansible.builtin.env', 'HOME') }}"
-sdev_username: cliffano
+sdev_username: root # TODO: change to studio-user when available on Packer-Studio
 sdev_home_dir: /tmp
 sdev_profile_file: .zprofile
 sdev_poetry_dir: /tmp/poetry
