@@ -10,7 +10,7 @@ def test_profile(host):
 def test_homebrew_bin_export(host):
 
     profile_file = host.file("/tmp/.zprofile")
-    assert "export PATH=$PATH:/opt/homebrew/bin" in profile_file.content_string
+    assert "export PATH=/opt/homebrew/bin:$PATH" in profile_file.content_string
 
 def test_workspace(host):
 
