@@ -16,6 +16,18 @@
   when: not profile_file.stat.exists
 
 ########################################
+# Utilities
+########################################
+
+- name: Provision make-list alias for listing Makefile targets
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^alias make-list"
+    line: "alias make-list='make -qp | awk -F\":\" \"/^[a-zA-Z0-9][^$#\\/\\t=]*:([^=]|$$)/ {print \\$1}\" | sort -u'"
+
+########################################
 # Homebrew
 ########################################
 

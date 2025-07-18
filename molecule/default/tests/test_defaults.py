@@ -7,6 +7,11 @@ def test_profile(host):
     assert profile_file.is_file
     assert profile_file.mode == 0o644
 
+def test_utilities_make_list(host):
+
+    profile_file = host.file("/tmp/.zprofile")
+    assert "alias make-list='make -qp | awk -F\":\" \"/^[a-zA-Z0-9][^$#\\/\\t=]*:([^=]|$$)/ {print \\$1}\" | sort -u'" in profile_file.content_string
+
 def test_homebrew_bin_export(host):
 
     profile_file = host.file("/tmp/.zprofile")
