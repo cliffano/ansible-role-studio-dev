@@ -116,6 +116,24 @@
 # Ghostty
 ########################################
 
+- name: Ensure Ghostty config directory exist
+  ansible.builtin.file:
+    path: "{{ sdev_ghostty_config_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: Provision Ghostty config file
+  ansible.builtin.copy:
+    content: |
+      {% for profile in sdev_ghostty_profiles %}
+      [{{ profile.id }}]
+      title = {{ profile.title }}
+      working_directory = {{ profile.working_directory }}
+      {% endfor %}
+    dest: "{{ sdev_ghostty_config_dir }}/config"
+    mode: '0644'
+    owner: "{{ sdev_username }}"
+
 - name: Provision ghostty alias for launching terminal windows
   ansible.builtin.lineinfile:
     path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"

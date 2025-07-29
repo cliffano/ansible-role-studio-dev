@@ -52,6 +52,15 @@ def test_vscode_workspace_aliases(host):
     profile_file = host.file("/tmp/.zprofile")
     assert "alias code-control='code /tmp/dev/workspace-control/config/workspace-config/vscode/control.code-workspace'" in profile_file.content_string
 
+def test_ghostty_config(host):
+
+    config_file = host.file("/tmp/stage/ghostty/config")
+    assert config_file.exists
+    assert config_file.is_file
+    assert config_file.mode == 0o644
+    assert "[control]" in config_file.content_string
+    assert "[studio]" in config_file.content_string
+
 def test_ghostty_alias(host):
 
     profile_file = host.file("/tmp/.zprofile")
