@@ -113,6 +113,18 @@
   loop: "{{ sdev_vscode_workspaces }}"
 
 ########################################
+# Ghostty
+########################################
+
+- name: Provision ghostty alias for launching terminal windows
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^alias ghostty-init"
+    line: "alias ghostty-init='{{ sdev_ghostty_profiles | map(attribute='id') | map('regex_replace', '^(.*)$', 'ghostty --profile \\1') | join(' && ') }}'"
+  
+########################################
 # SSH
 ########################################
 

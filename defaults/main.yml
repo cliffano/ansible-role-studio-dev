@@ -26,3 +26,10 @@ sdev_colima_networks:
   - studio
 sdev_docker_images:
   - { id: 'studio', image: 'cliffano/studio', env_file: '/tmp/stage/.env', home_dir: 'root', entrypoint: '/bin/bash' }
+sdev_ghostty_profiles:
+  - id: control
+    title: Control
+    working_directory: /tmp/dev/workspace-control
+  - id: studio
+    title: Studio
+    working_directory: /tmp/dev/workspace-studio

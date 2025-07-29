@@ -52,6 +52,11 @@ def test_vscode_workspace_aliases(host):
     profile_file = host.file("/tmp/.zprofile")
     assert "alias code-control='code /tmp/dev/workspace-control/config/workspace-config/vscode/control.code-workspace'" in profile_file.content_string
 
+def test_ghostty_alias(host):
+
+    profile_file = host.file("/tmp/.zprofile")
+    assert "alias ghostty-init='ghostty --profile control && ghostty --profile studio'" in profile_file.content_string
+
 def test_ssh_config(host):
 
     sshconfig_file = host.file("/tmp/.ssh/config")
