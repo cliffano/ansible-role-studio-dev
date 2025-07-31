@@ -52,20 +52,6 @@ def test_vscode_workspace_aliases(host):
     profile_file = host.file("/tmp/.zprofile")
     assert "alias code-control='code /tmp/dev/workspace-control/config/workspace-config/vscode/control.code-workspace'" in profile_file.content_string
 
-def test_ghostty_config(host):
-
-    config_file = host.file("/tmp/stage/ghostty/config")
-    assert config_file.exists
-    assert config_file.is_file
-    assert config_file.mode == 0o644
-    assert "[control]" in config_file.content_string
-    assert "[studio]" in config_file.content_string
-
-def test_ghostty_alias(host):
-
-    profile_file = host.file("/tmp/.zprofile")
-    assert "alias ghostty-init='ghostty --profile control && ghostty --profile studio'" in profile_file.content_string
-
 def test_ssh_config(host):
 
     sshconfig_file = host.file("/tmp/.ssh/config")
@@ -89,6 +75,12 @@ def test_ssh_public_key(host):
     sshconfig_file = host.file("/tmp/.ssh/id_ed25519.pub")
     assert sshconfig_file.exists
     assert sshconfig_file.is_symlink
+
+def test_ghostty_config(host):
+
+    ghosttyconfig_file = host.file("/tmp/.config/ghostty/config")
+    assert ghosttyconfig_file.exists
+    assert ghosttyconfig_file.is_symlink
 
 def test_bullet_train_theme(host):
 
