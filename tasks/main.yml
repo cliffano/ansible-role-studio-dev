@@ -52,6 +52,16 @@
     backup: no
     regexp: "^export PATH=/opt/homebrew/bin:.*"
     line: "export PATH=/opt/homebrew/bin:$PATH"
+  when: ansible_facts and 'os_family' in ansible_facts and ansible_facts['os_family'] == 'Darwin'
+
+- name: Provision refresh-brew alias for refreshing Homebrew and its packages
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^alias brew-refresh="
+    line: "alias brew-refresh='brew update && brew upgrade && brew upgrade --cask && brew cleanup'"
+  when: ansible_facts and 'os_family' in ansible_facts and ansible_facts['os_family'] == 'Darwin'
 
 ########################################
 # Python
