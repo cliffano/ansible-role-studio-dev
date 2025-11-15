@@ -134,4 +134,4 @@ def test_docker_aliases(host):
 def test_colima_aliases(host):
 
     profile_file = host.file("/tmp/.zprofile")
-    assert "alias co5-studio='sudo rm -f /var/run/docker.sock && sudo ln -s /tmp/.colima/studio/docker.sock /var/run/docker.sock && colima start studio'" in profile_file.content_string
+    assert "alias co5-studio='sudo rm -f /var/run/docker.sock && sudo ln -s /tmp/.colima/studio/docker.sock /var/run/docker.sock && colima start --cpu 2 --memory 4GiB studio'" in profile_file.content_string

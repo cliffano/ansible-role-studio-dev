@@ -355,5 +355,5 @@
     state: present
     backup: no
     regexp: "^alias co5-{{ item }}=.*$"
-    line: "alias co5-{{ item }}='sudo rm -f /var/run/docker.sock && sudo ln -s {{ sdev_home_dir }}/.colima/{{ item }}/docker.sock /var/run/docker.sock && colima start {{ item }}'"
+    line: "alias co5-{{ item }}='sudo rm -f /var/run/docker.sock && sudo ln -s {{ sdev_home_dir }}/.colima/{{ item }}/docker.sock /var/run/docker.sock && colima start --cpu 2 --memory 4GiB {{ item }}'"
   loop: "{{ sdev_colima_networks }}"
