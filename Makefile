@@ -46,7 +46,7 @@ lint:
 	$(call python_venv,ansible-lint -v .)
 	$(call python_venv,yamllint .)
 
-test:
+test: x-test-fixtures
 	$(call python_venv,molecule test)
 
 # Update Makefile to the latest version tag
@@ -61,4 +61,10 @@ update-to-main:
 update-to-version:
 	curl https://raw.githubusercontent.com/cliffano/mdh/$(TARGET_MDH_VERSION)/src/Makefile-mdh -o Makefile
 
-.PHONY: ci all clean rmdeps deps deps-upgrade lint test update-to-latest update-to-main update-to-version stage
+################################################################
+
+x-test-fixtures: stage
+	cp -R test-fixtures/.gitconfig /tmp/stage/
+	cp -R test-fixtures/* /tmp/stage/
+
+.PHONY: ci all clean rmdeps deps deps-upgrade lint test update-to-latest update-to-main update-to-version stage x-test-fixtures
