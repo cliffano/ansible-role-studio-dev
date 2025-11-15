@@ -4,7 +4,7 @@
 ################################################################
 
 # MDH's version number
-MDH_VERSION = 0.10.1-pre.0
+MDH_VERSION = 1.0.0
 
 $(info ################################################################)
 $(info Building Ansible role using MDH:)
@@ -43,13 +43,10 @@ deps-upgrade:
 	$(call python_venv,pip-compile --upgrade)
 
 lint:
-	$(call python_venv,molecule lint)
+	$(call python_venv,ansible-lint -v .)
+	$(call python_venv,yamllint .)
 
-x-test-fixtures:
-	cp -R test-fixtures/.gitconfig /tmp/stage/
-	cp -R test-fixtures/* /tmp/stage/
-
-test: x-test-fixtures
+test:
 	$(call python_venv,molecule test)
 
 # Update Makefile to the latest version tag
@@ -64,6 +61,4 @@ update-to-main:
 update-to-version:
 	curl https://raw.githubusercontent.com/cliffano/mdh/$(TARGET_MDH_VERSION)/src/Makefile-mdh -o Makefile
 
-################################################################
-
-.PHONY: ci all clean rmdeps deps deps-upgrade lint x-test-fixtures test update-to-latest update-to-main update-to-version stage
+.PHONY: ci all clean rmdeps deps deps-upgrade lint test update-to-latest update-to-main update-to-version stage
