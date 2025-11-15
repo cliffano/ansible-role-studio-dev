@@ -4,7 +4,7 @@ dependency:
   options:
     role-file: requirements.yml
 driver:
-  name: delegated
+  name: default
   options:
     managed: False
     ansible_connection_options:
@@ -18,7 +18,3 @@ provisioner:
   name: ansible
 verifier:
   name: testinfra
-lint: |
-  set -e
-  yamllint .
-  ansible-lint
