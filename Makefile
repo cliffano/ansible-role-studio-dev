@@ -63,7 +63,8 @@ update-to-version:
 
 ################################################################
 
-x-test-fixtures: stage
+x-test-fixtures:
+	mkdir -p /tmp/stage/
 	cp -R test-fixtures/.gitconfig /tmp/stage/
 	cp -R test-fixtures/* /tmp/stage/
 
