@@ -7,7 +7,7 @@ collections:
 galaxy_info:
   namespace: cliffano
   role_name: studio_dev
-  author: Cliffano Subagio
+  author: Cliffano Subagio <cliffano@gmail.com>
   description: Ansible role for provisioning dev tools for Studio projects
   license: "license (MIT)"
   min_ansible_version: 10.3.0
