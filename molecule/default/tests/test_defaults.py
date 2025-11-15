@@ -10,7 +10,7 @@ def test_profile(host):
 def test_utilities_make_list(host):
 
     profile_file = host.file("/tmp/.zprofile")
-    assert "alias make-list='make -qp | awk -F\":\" \"/^[a-zA-Z0-9][^$#\\/\\t=]*:([^=]|$$)/ {print \\$1}\" | sort -u'" in profile_file.content_string
+    assert "alias make-list='make -qp | awk -F\":\" \"/^[a-zA-Z0-9][^$#\\/\\t=]*:([^=]|$)/ {print \\$1}\" | sort -u'" in profile_file.content_string
 
 def test_workspace(host):
 
