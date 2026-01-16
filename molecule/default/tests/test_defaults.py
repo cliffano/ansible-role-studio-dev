@@ -85,6 +85,14 @@ def test_tmux_config(host):
     assert tmuxconfig_file.exists
     assert tmuxconfig_file.is_symlink
 
+def test_tmux_aliases(host):
+
+    tmux_aliases_file = host.file("/tmp/.oh-my-zsh/custom/aliases-tmux.zsh")
+    assert tmux_aliases_file.exists
+    assert tmux_aliases_file.is_file
+    assert tmux_aliases_file.mode == 0o644
+    assert "alias tmux-studio='/tmp/tmux-layouts/studio.tmux'" in tmux_aliases_file.content_string
+
 def test_bullet_train_theme(host):
 
     theme_file = host.file("/tmp/.oh-my-zsh/themes/bullet-train.zsh-theme")

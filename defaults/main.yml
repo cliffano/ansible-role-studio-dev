@@ -20,6 +20,10 @@ sdev_gitconfig_file: .gitconfig
 sdev_gpgagent_conf_file: gpg-agent.conf
 sdev_tmux_config_link_src: /tmp/stage/.tmux.conf
 sdev_tmux_config_file: .tmux.conf
+sdev_tmux_aliases_file: aliases-tmux.zsh
+sdev_tmux_layout_scripts_dir: /tmp/tmux-layouts
+sdev_tmux_layout_scripts:
+  - studio
 sdev_npm_packages:
   - repoman
 sdev_workspaces:

@@ -211,6 +211,27 @@
     state: link
     force: yes
 
+- name: "Get the status of Oh My Zsh tmux aliases custom file"
+  ansible.builtin.stat:
+    path: "{{ sdev_home_dir }}/.oh-my-zsh/custom/{{ sdev_tmux_aliases_file }}"
+  register: ohmyzsh_tmuxaliases_file
+
+- name: Ensure Oh My Zsh tmux aliases custom file exists
+  ansible.builtin.copy:
+    content: ""
+    dest: "{{ sdev_home_dir }}/.oh-my-zsh/custom/{{ sdev_tmux_aliases_file }}"
+    mode: '0644'
+  when: not ohmyzsh_tmuxaliases_file.stat.exists
+
+- name: Create aliases for tmux layout scripts
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/.oh-my-zsh/custom/{{ sdev_tmux_aliases_file }}"
+    state: present
+    backup: no
+    regexp: "^alias {{ item }}="
+    line: "alias tmux-{{ item }}='{{ sdev_tmux_layout_scripts_dir }}/{{ item }}.tmux'"
+  loop: "{{ sdev_tmux_layout_scripts }}"
+
 ########################################
 # Oh My Zsh
 # Note: This section requires Oh My Zsh to be installed on userland
