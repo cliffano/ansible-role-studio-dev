@@ -1,5 +1,7 @@
 import pytest
 
+# These tests use /tmp as a representation of sdev home directory
+
 def test_profile(host):
 
     profile_file = host.file("/tmp/.zprofile")
@@ -76,6 +78,12 @@ def test_ghostty_config(host):
     ghosttyconfig_file = host.file("/tmp/.config/ghostty/config")
     assert ghosttyconfig_file.exists
     assert ghosttyconfig_file.is_symlink
+
+def test_tmux_config(host):
+
+    tmuxconfig_file = host.file("/tmp/.tmux.conf")
+    assert tmuxconfig_file.exists
+    assert tmuxconfig_file.is_symlink
 
 def test_bullet_train_theme(host):
 

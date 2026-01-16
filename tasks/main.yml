@@ -201,6 +201,17 @@
     force: yes
 
 ########################################
+# tmux
+########################################
+
+- name: Ensure tmux config symlink
+  ansible.builtin.file:
+    src: "{{ sdev_tmux_config_link_src }}"
+    dest: "{{ sdev_home_dir }}/{{ sdev_tmux_config_file }}"
+    state: link
+    force: yes
+
+########################################
 # Oh My Zsh
 # Note: This section requires Oh My Zsh to be installed on userland
 #       e.g. by using  gantsign.oh-my-zsh role

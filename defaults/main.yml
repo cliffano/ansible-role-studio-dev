@@ -18,6 +18,8 @@ sdev_git_aliases_file: aliases-git.zsh
 sdev_gitconfig_link_src: /tmp/stage/.gitconfig
 sdev_gitconfig_file: .gitconfig
 sdev_gpgagent_conf_file: gpg-agent.conf
+sdev_tmux_config_link_src: /tmp/stage/.tmux.conf
+sdev_tmux_config_file: .tmux.conf
 sdev_npm_packages:
   - repoman
 sdev_workspaces:

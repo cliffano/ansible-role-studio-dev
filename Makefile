@@ -66,6 +66,7 @@ update-to-version:
 x-test-fixtures:
 	mkdir -p /tmp/stage/
 	cp -R test-fixtures/.gitconfig /tmp/stage/
+	cp -R test-fixtures/.tmux.conf /tmp/stage/
 	cp -R test-fixtures/* /tmp/stage/
 
 .PHONY: ci all clean rmdeps deps deps-upgrade lint test update-to-latest update-to-main update-to-version stage x-test-fixtures
