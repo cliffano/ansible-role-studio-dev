@@ -35,4 +35,4 @@ homebrew_packages:
   - python
   - telnet
   - yq
-  - 1password-cli
+
