@@ -24,6 +24,9 @@ git_aliases:
   gst: 'git stash'
   gta: 'git tag -a'
 
+homebrew_taps:
+  - hjorthjort/hjort
+
 homebrew_packages:
   - colima
   - docker
@@ -35,3 +38,4 @@ homebrew_packages:
   - python
   - telnet
   - yq
+  - hjorthjort/hjort/gitinspector
