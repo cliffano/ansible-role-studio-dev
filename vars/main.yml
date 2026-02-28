@@ -24,7 +24,7 @@ git_aliases:
   gst: 'git stash'
   gta: 'git tag -a'
 
-homebrew_taps:
+homebrew_taps_sources:
   - hjorthjort/hjort
 
 homebrew_packages:
