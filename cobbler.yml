@@ -1,0 +1,13 @@
+---
+package_name: studio_dev
+author: Cliffano Subagio
+generator:
+  component: ansible-role
+  inputs:
+    project_id: studio_dev
+    project_name: Ansible Role Studio Dev Tools
+    project_desc: Ansible role for provisioning common Studio development setup
+    author_name: Cliffano Subagio
+    author_email: cliffano@gmail.com
+    github_id: cliffano
+    github_repo: ansible-role-studio-dev
