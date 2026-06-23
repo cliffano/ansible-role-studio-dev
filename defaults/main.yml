@@ -36,3 +36,5 @@ sdev_docker_images:
   - { id: 'studio', image: 'cliffano/studio', env_file: '/tmp/stage/.env', home_dir: 'root', entrypoint: '/bin/bash' }
 sdev_homebrew_packages_extra:
   - 1password-cli
+sdev_homebrew_cask_apps_extra:
+  - discord

@@ -39,3 +39,6 @@ homebrew_packages:
   - telnet
   - yq
   - hjorthjort/hjort/gitinspector
+
+homebrew_cask_apps:
+  - firefox
