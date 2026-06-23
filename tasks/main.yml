@@ -44,7 +44,7 @@
     homebrew_prefix: /opt/homebrew
     homebrew_taps: "{{ homebrew_taps_sources }}"
     homebrew_installed_packages: "{{ homebrew_packages + sdev_homebrew_packages_extra }}"
-    homebrew_cask_apps: "{{ homebrew_cask_apps_ + sdev_homebrew_cask_apps_extra }}"
+    homebrew_cask_apps: "{{ homebrew_cask_apps_packages + sdev_homebrew_cask_apps_extra }}"
   when: ansible_facts and 'os_family' in ansible_facts and ansible_facts['os_family'] == 'Darwin'
 
 - name: Add Homebrew bin to PATH
