@@ -40,5 +40,5 @@ homebrew_packages:
   - yq
   - hjorthjort/hjort/gitinspector
 
-homebrew_cask_apps:
+homebrew_cask_apps_packages:
   - firefox
