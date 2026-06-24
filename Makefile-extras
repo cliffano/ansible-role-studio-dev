@@ -1,7 +1,7 @@
-x-test-fixtures:
+x-pre-test:
 	mkdir -p /tmp/stage/
 	cp -R test-fixtures/.gitconfig /tmp/stage/
 	cp -R test-fixtures/.tmux.conf /tmp/stage/
 	cp -R test-fixtures/* /tmp/stage/
 
-.PHONY: x-test-fixtures
+.PHONY: x-pre-test
