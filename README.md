@@ -60,3 +60,17 @@ Use the role in your playbook:
 | sdev_docker_images | List of Docker image configs, each with `id`, `image`, `env_file`, `home_dir`, and `entrypoint` | `[{id: studio, image: cliffano/studio, ...}]` | `[{id: myapp, image: myorg/myapp, env_file: /tmp/.env, home_dir: root, entrypoint: /bin/bash}]` |
 | sdev_homebrew_packages_extra | Extra Homebrew packages to install on top of the base list | `[1password-cli]` | `[1password-cli, awscli]` |
 | sdev_homebrew_cask_apps_extra | Extra Homebrew cask apps to install on top of the base list | `[discord]` | `[discord, slack]` |
+
+## Colophon
+
+<!-- BEGIN:DEVELOPERS_GUIDE -->
+[Developer's Guide](https://cliffano.github.io/developers-guide-ansible.html)
+<!-- END:DEVELOPERS_GUIDE -->
+
+<!-- BEGIN:BUILD_REPORTS -->
+Build reports:
+
+* [Lint report](https://cliffano.github.io/ansible-role-studio-dev/lint/ansible-lint/report.md)
+* [Test report](https://cliffano.github.io/ansible-role-studio-dev/test/molecule/report.txt)
+
+<!-- END:BUILD_REPORTS -->
