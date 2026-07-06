@@ -1,0 +1,581 @@
+INFO     [default > discovery] scenario test matrix: dependency, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     [default > prerun] Performing prerun with role_name_check=0...
+INFO     [default > dependency] Executing
+Starting galaxy collection install process
+Nothing to do. All requested collections are already installed. If you want to reinstall them, consider using `--force`.
+INFO     [default > dependency] Dependency completed successfully.
+WARNING  [default > dependency] Missing collections requirements file: collections.yml
+WARNING  [default > dependency] Executed: Missing collections requirements file: collections.yml (Remove from test_sequence to suppress)
+INFO     [default > cleanup] Executing
+WARNING  [default > cleanup] Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     [default > destroy] Executing
+WARNING  [default > destroy] Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     [default > syntax] Executing
+
+playbook: /opt/workspace/molecule/default/converge.yml
+INFO     [default > syntax] Executed: Successful
+INFO     [default > create] Executing
+WARNING  [default > create] Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     [default > prepare] Executing
+WARNING  [default > prepare] Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     [default > converge] Executing
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Include workspace] *******************************************************
+included: cliffano.studio_dev for localhost
+
+TASK [cliffano.studio_dev : Get the status of profile file] ********************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure profile file exists] ************************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure generic config directory exist] *************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Provision make-list alias for listing Makefile targets] ***
+changed: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Determine Homebrew ownership variables] *******
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure Homebrew parent directory has correct permissions (Apple Silicon).] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure Homebrew parent directory has correct permissions (MacOS >= 10.13).] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure Homebrew parent directory has correct permissions (MacOS < 10.13).] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Check if homebrew already exists.] ************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure Homebrew directory exists.] ************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure Homebrew is installed.] ****************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure proper permissions and ownership on homebrew_brew_bin_path dirs.] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure proper ownership on homebrew_install_path subdirs.] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Check if homebrew binary is already in place.] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Symlink brew to homebrew_brew_bin_path.] ******
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Add missing folder if not on Apple-chipset] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure proper homebrew folders are in place.] ***
+skipping: [localhost] => (item=Cellar)
+skipping: [localhost] => (item=Frameworks)
+skipping: [localhost] => (item=Caskroom)
+skipping: [localhost] => (item=bin)
+skipping: [localhost] => (item=etc)
+skipping: [localhost] => (item=include)
+skipping: [localhost] => (item=lib)
+skipping: [localhost] => (item=opt)
+skipping: [localhost] => (item=sbin)
+skipping: [localhost] => (item=share)
+skipping: [localhost] => (item=share/zsh)
+skipping: [localhost] => (item=share/zsh/site-functions)
+skipping: [localhost] => (item=var)
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Collect package manager fact.] ****************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Force update brew after installation.] ********
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Where is the cache?] **************************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure configured taps are tapped.] ***********
+skipping: [localhost] => (item=hjorthjort/hjort)
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure blacklisted cask applications are not installed.] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Install configured cask applications.] ********
+skipping: [localhost] => (item=firefox)
+skipping: [localhost] => (item=discord)
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure blacklisted homebrew packages are not installed.] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure configured homebrew packages are installed.] ***
+skipping: [localhost] => (item=colima)
+skipping: [localhost] => (item=docker)
+skipping: [localhost] => (item=gpg)
+skipping: [localhost] => (item=htop)
+skipping: [localhost] => (item=nmap)
+skipping: [localhost] => (item=node)
+skipping: [localhost] => (item=pinentry-mac)
+skipping: [localhost] => (item=python)
+skipping: [localhost] => (item=telnet)
+skipping: [localhost] => (item=yq)
+skipping: [localhost] => (item=hjorthjort/hjort/gitinspector)
+skipping: [localhost] => (item=1password-cli)
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Upgrade all homebrew packages (if configured).] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Check for Brewfile.] **************************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Install from Brewfile.] ***********************
+skipping: [localhost]
+
+TASK [cliffano.studio_dev : Add Homebrew bin to PATH] **************************
+skipping: [localhost]
+
+TASK [cliffano.studio_dev : Provision refresh-brew alias for refreshing Homebrew and its packages] ***
+skipping: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Poetry directory exists] ********************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Add relative VirtualEnv bin and Poetry bin to PATH] ***
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure workspace directories exist] ****************
+changed: [localhost] => (item=control)
+
+TASK [cliffano.studio_dev : Set goto workspace directory aliases] **************
+changed: [localhost] => (item=control)
+
+TASK [cliffano.studio_dev : Set Repoman configuration for main workspace repositories] ***
+changed: [localhost] => (item=control)
+
+TASK [cliffano.studio_dev : Set VSCode workspace aliases] **********************
+changed: [localhost] => (item=control)
+
+TASK [cliffano.studio_dev : Ensure Ghostty config directory exist] *************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Ghostty config symlink] *********************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH config directory exists] ****************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH config symlink] *************************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH config include directory exists] ********
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH config include symlink] *****************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH private key symlink] ********************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH public key symlink] *********************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Set gitconfig symlink] *****************************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure tmux config symlink] ************************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh tmux custom dir exists] ***********
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Get the status of Oh My Zsh tmux aliases custom file] ***
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh tmux aliases custom file exists] ***
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Create aliases for tmux layout scripts] ************
+changed: [localhost] => (item=studio)
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh directory exists] *****************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh custom directory exists] **********
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh themes directory exists] **********
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Download Oh My Zsh Bullet Train theme] *************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Set TERM export (required by Bullet Train theme)] ***
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Get the status of Oh My Zsh git aliases custom file] ***
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh git aliases custom file exists] ***
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Create aliases for git commands] *******************
+changed: [localhost] => (item={'key': 'gaa', 'value': 'git add -A'})
+changed: [localhost] => (item={'key': 'gcam', 'value': 'git commit -am'})
+changed: [localhost] => (item={'key': 'gcb', 'value': 'git checkout -b'})
+changed: [localhost] => (item={'key': 'gcp', 'value': 'git cherry-pick'})
+changed: [localhost] => (item={'key': 'gcpc', 'value': 'git cherry-pick --continue'})
+changed: [localhost] => (item={'key': 'gco', 'value': 'git checkout'})
+changed: [localhost] => (item={'key': 'gcom', 'value': 'git checkout main'})
+changed: [localhost] => (item={'key': 'gd', 'value': 'git diff'})
+changed: [localhost] => (item={'key': 'gl3', 'value': 'git log -3'})
+changed: [localhost] => (item={'key': 'gl5', 'value': 'git log -5'})
+changed: [localhost] => (item={'key': 'gl7', 'value': 'git log -7'})
+changed: [localhost] => (item={'key': 'gp', 'value': 'git push'})
+changed: [localhost] => (item={'key': 'gpr', 'value': 'git pull --rebase'})
+changed: [localhost] => (item={'key': 'gpt', 'value': 'git push --tags'})
+changed: [localhost] => (item={'key': 'gppt', 'value': 'git push && git push --tags'})
+changed: [localhost] => (item={'key': 'gprp', 'value': 'git pull --rebase && git push'})
+changed: [localhost] => (item={'key': 'gprpt', 'value': 'git pull --rebase && git push && git push --tags'})
+changed: [localhost] => (item={'key': 'grh', 'value': 'git reset HEAD~'})
+changed: [localhost] => (item={'key': 'grc', 'value': 'git rebase --continue'})
+changed: [localhost] => (item={'key': 'gs', 'value': 'git status'})
+changed: [localhost] => (item={'key': 'gsa', 'value': 'git stash apply'})
+changed: [localhost] => (item={'key': 'gst', 'value': 'git stash'})
+changed: [localhost] => (item={'key': 'gta', 'value': 'git tag -a'})
+
+TASK [cliffano.studio_dev : Ensure GnuPG directory exists] *********************
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Get the status of GPG agent configuration file] ****
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure GPG agent configuration file exists] ********
+changed: [localhost]
+
+TASK [cliffano.studio_dev : Set pinentry-program required by git for GPG signing] ***
+changed: [localhost] => (item=pinentry-program /usr/local/bin/pinentry-mac)
+changed: [localhost] => (item=default-cache-ttl)
+changed: [localhost] => (item=max-cache-ttl 28800)
+
+TASK [cliffano.studio_dev : Ensure global node packages are installed] *********
+changed: [localhost] => (item=repoman)
+
+TASK [cliffano.studio_dev : Pull Docker images] ********************************
+changed: [localhost] => (item={'id': 'studio', 'image': 'cliffano/studio', 'env_file': '/tmp/stage/.env', 'home_dir': 'root', 'entrypoint': '/bin/bash'})
+
+TASK [cliffano.studio_dev : Set Docker run aliases] ****************************
+changed: [localhost] => (item={'id': 'studio', 'image': 'cliffano/studio', 'env_file': '/tmp/stage/.env', 'home_dir': 'root', 'entrypoint': '/bin/bash'})
+
+TASK [cliffano.studio_dev : Set Docker attach aliases] *************************
+changed: [localhost] => (item={'id': 'studio', 'image': 'cliffano/studio', 'env_file': '/tmp/stage/.env', 'home_dir': 'root', 'entrypoint': '/bin/bash'})
+
+TASK [cliffano.studio_dev : Set Docker one-off run aliases] ********************
+changed: [localhost] => (item={'id': 'studio', 'image': 'cliffano/studio', 'env_file': '/tmp/stage/.env', 'home_dir': 'root', 'entrypoint': '/bin/bash'})
+
+TASK [cliffano.studio_dev : Set Colima aliases] ********************************
+changed: [localhost] => (item=studio)
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=44   changed=36   unreachable=0    failed=0    skipped=26   rescued=0    ignored=0
+
+INFO     [default > converge] Executed: Successful
+INFO     [default > idempotence] Executing
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Include workspace] *******************************************************
+included: cliffano.studio_dev for localhost
+
+TASK [cliffano.studio_dev : Get the status of profile file] ********************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure profile file exists] ************************
+skipping: [localhost]
+
+TASK [cliffano.studio_dev : Ensure generic config directory exist] *************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Provision make-list alias for listing Makefile targets] ***
+ok: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Determine Homebrew ownership variables] *******
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure Homebrew parent directory has correct permissions (Apple Silicon).] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure Homebrew parent directory has correct permissions (MacOS >= 10.13).] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure Homebrew parent directory has correct permissions (MacOS < 10.13).] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Check if homebrew already exists.] ************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure Homebrew directory exists.] ************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure Homebrew is installed.] ****************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure proper permissions and ownership on homebrew_brew_bin_path dirs.] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure proper ownership on homebrew_install_path subdirs.] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Check if homebrew binary is already in place.] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Symlink brew to homebrew_brew_bin_path.] ******
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Add missing folder if not on Apple-chipset] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure proper homebrew folders are in place.] ***
+skipping: [localhost] => (item=Cellar)
+skipping: [localhost] => (item=Frameworks)
+skipping: [localhost] => (item=Caskroom)
+skipping: [localhost] => (item=bin)
+skipping: [localhost] => (item=etc)
+skipping: [localhost] => (item=include)
+skipping: [localhost] => (item=lib)
+skipping: [localhost] => (item=opt)
+skipping: [localhost] => (item=sbin)
+skipping: [localhost] => (item=share)
+skipping: [localhost] => (item=share/zsh)
+skipping: [localhost] => (item=share/zsh/site-functions)
+skipping: [localhost] => (item=var)
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Collect package manager fact.] ****************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Force update brew after installation.] ********
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Where is the cache?] **************************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure configured taps are tapped.] ***********
+skipping: [localhost] => (item=hjorthjort/hjort)
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure blacklisted cask applications are not installed.] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Install configured cask applications.] ********
+skipping: [localhost] => (item=firefox)
+skipping: [localhost] => (item=discord)
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure blacklisted homebrew packages are not installed.] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Ensure configured homebrew packages are installed.] ***
+skipping: [localhost] => (item=colima)
+skipping: [localhost] => (item=docker)
+skipping: [localhost] => (item=gpg)
+skipping: [localhost] => (item=htop)
+skipping: [localhost] => (item=nmap)
+skipping: [localhost] => (item=node)
+skipping: [localhost] => (item=pinentry-mac)
+skipping: [localhost] => (item=python)
+skipping: [localhost] => (item=telnet)
+skipping: [localhost] => (item=yq)
+skipping: [localhost] => (item=hjorthjort/hjort/gitinspector)
+skipping: [localhost] => (item=1password-cli)
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Upgrade all homebrew packages (if configured).] ***
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Check for Brewfile.] **************************
+skipping: [localhost]
+
+TASK [geerlingguy.mac.homebrew : Install from Brewfile.] ***********************
+skipping: [localhost]
+
+TASK [cliffano.studio_dev : Add Homebrew bin to PATH] **************************
+skipping: [localhost]
+
+TASK [cliffano.studio_dev : Provision refresh-brew alias for refreshing Homebrew and its packages] ***
+skipping: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Poetry directory exists] ********************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Add relative VirtualEnv bin and Poetry bin to PATH] ***
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure workspace directories exist] ****************
+ok: [localhost] => (item=control)
+
+TASK [cliffano.studio_dev : Set goto workspace directory aliases] **************
+ok: [localhost] => (item=control)
+
+TASK [cliffano.studio_dev : Set Repoman configuration for main workspace repositories] ***
+ok: [localhost] => (item=control)
+
+TASK [cliffano.studio_dev : Set VSCode workspace aliases] **********************
+ok: [localhost] => (item=control)
+
+TASK [cliffano.studio_dev : Ensure Ghostty config directory exist] *************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Ghostty config symlink] *********************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH config directory exists] ****************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH config symlink] *************************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH config include directory exists] ********
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH config include symlink] *****************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH private key symlink] ********************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure SSH public key symlink] *********************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Set gitconfig symlink] *****************************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure tmux config symlink] ************************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh tmux custom dir exists] ***********
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Get the status of Oh My Zsh tmux aliases custom file] ***
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh tmux aliases custom file exists] ***
+skipping: [localhost]
+
+TASK [cliffano.studio_dev : Create aliases for tmux layout scripts] ************
+ok: [localhost] => (item=studio)
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh directory exists] *****************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh custom directory exists] **********
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh themes directory exists] **********
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Download Oh My Zsh Bullet Train theme] *************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Set TERM export (required by Bullet Train theme)] ***
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Get the status of Oh My Zsh git aliases custom file] ***
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure Oh My Zsh git aliases custom file exists] ***
+skipping: [localhost]
+
+TASK [cliffano.studio_dev : Create aliases for git commands] *******************
+ok: [localhost] => (item={'key': 'gaa', 'value': 'git add -A'})
+ok: [localhost] => (item={'key': 'gcam', 'value': 'git commit -am'})
+ok: [localhost] => (item={'key': 'gcb', 'value': 'git checkout -b'})
+ok: [localhost] => (item={'key': 'gcp', 'value': 'git cherry-pick'})
+ok: [localhost] => (item={'key': 'gcpc', 'value': 'git cherry-pick --continue'})
+ok: [localhost] => (item={'key': 'gco', 'value': 'git checkout'})
+ok: [localhost] => (item={'key': 'gcom', 'value': 'git checkout main'})
+ok: [localhost] => (item={'key': 'gd', 'value': 'git diff'})
+ok: [localhost] => (item={'key': 'gl3', 'value': 'git log -3'})
+ok: [localhost] => (item={'key': 'gl5', 'value': 'git log -5'})
+ok: [localhost] => (item={'key': 'gl7', 'value': 'git log -7'})
+ok: [localhost] => (item={'key': 'gp', 'value': 'git push'})
+ok: [localhost] => (item={'key': 'gpr', 'value': 'git pull --rebase'})
+ok: [localhost] => (item={'key': 'gpt', 'value': 'git push --tags'})
+ok: [localhost] => (item={'key': 'gppt', 'value': 'git push && git push --tags'})
+ok: [localhost] => (item={'key': 'gprp', 'value': 'git pull --rebase && git push'})
+ok: [localhost] => (item={'key': 'gprpt', 'value': 'git pull --rebase && git push && git push --tags'})
+ok: [localhost] => (item={'key': 'grh', 'value': 'git reset HEAD~'})
+ok: [localhost] => (item={'key': 'grc', 'value': 'git rebase --continue'})
+ok: [localhost] => (item={'key': 'gs', 'value': 'git status'})
+ok: [localhost] => (item={'key': 'gsa', 'value': 'git stash apply'})
+ok: [localhost] => (item={'key': 'gst', 'value': 'git stash'})
+ok: [localhost] => (item={'key': 'gta', 'value': 'git tag -a'})
+
+TASK [cliffano.studio_dev : Ensure GnuPG directory exists] *********************
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Get the status of GPG agent configuration file] ****
+ok: [localhost]
+
+TASK [cliffano.studio_dev : Ensure GPG agent configuration file exists] ********
+skipping: [localhost]
+
+TASK [cliffano.studio_dev : Set pinentry-program required by git for GPG signing] ***
+ok: [localhost] => (item=pinentry-program /usr/local/bin/pinentry-mac)
+ok: [localhost] => (item=default-cache-ttl)
+ok: [localhost] => (item=max-cache-ttl 28800)
+
+TASK [cliffano.studio_dev : Ensure global node packages are installed] *********
+ok: [localhost] => (item=repoman)
+
+TASK [cliffano.studio_dev : Pull Docker images] ********************************
+ok: [localhost] => (item={'id': 'studio', 'image': 'cliffano/studio', 'env_file': '/tmp/stage/.env', 'home_dir': 'root', 'entrypoint': '/bin/bash'})
+
+TASK [cliffano.studio_dev : Set Docker run aliases] ****************************
+ok: [localhost] => (item={'id': 'studio', 'image': 'cliffano/studio', 'env_file': '/tmp/stage/.env', 'home_dir': 'root', 'entrypoint': '/bin/bash'})
+
+TASK [cliffano.studio_dev : Set Docker attach aliases] *************************
+ok: [localhost] => (item={'id': 'studio', 'image': 'cliffano/studio', 'env_file': '/tmp/stage/.env', 'home_dir': 'root', 'entrypoint': '/bin/bash'})
+
+TASK [cliffano.studio_dev : Set Docker one-off run aliases] ********************
+ok: [localhost] => (item={'id': 'studio', 'image': 'cliffano/studio', 'env_file': '/tmp/stage/.env', 'home_dir': 'root', 'entrypoint': '/bin/bash'})
+
+TASK [cliffano.studio_dev : Set Colima aliases] ********************************
+ok: [localhost] => (item=studio)
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=40   changed=0    unreachable=0    failed=0    skipped=30   rescued=0    ignored=0
+
+INFO     [default > idempotence] Executed: Successful
+INFO     [default > side_effect] Executing
+WARNING  [default > side_effect] Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     [default > verify] Executing
+INFO     [default > verify] Executing Testinfra tests found in /opt/workspace/molecule/default/tests/...
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.0.1, pluggy-1.6.0
+rootdir: /
+plugins: testinfra-10.2.2
+collected 23 items
+
+tests/test_defaults.py .......................                           [100%]
+
+============================= 23 passed in 11.23s ==============================
+INFO     [default > verify] Verifier completed successfully.
+INFO     [default > verify] Executed: Successful
+INFO     [default > cleanup] Executing
+WARNING  [default > cleanup] Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     [default > destroy] Executing
+WARNING  [default > destroy] Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     [default > scenario] Pruning extra files from scenario ephemeral directory
+WARNING  Molecule executed 1 scenario (1 missing files)
