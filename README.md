@@ -70,7 +70,7 @@ Use the role in your playbook:
 <!-- BEGIN:BUILD_REPORTS -->
 Build reports:
 
-* [Lint report](https://cliffano.github.io/ansible-role-studio-dev/lint/ansible-lint/report.md)
-* [Test report](https://cliffano.github.io/ansible-role-studio-dev/test/molecule/report.txt)
+* [Lint report](https://cliffano.github.io/ansible-role-studio-dev/lint/ansible-lint.txt)
+* [Test report](https://cliffano.github.io/ansible-role-studio-dev/test/molecule.txt)
 
 <!-- END:BUILD_REPORTS -->
