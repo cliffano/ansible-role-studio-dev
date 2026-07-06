@@ -132,7 +132,7 @@ update-partials: stage
 	  git clone https://github.com/cliffano/generator-ansible && \
 	  cd generator-ansible && \
 	  make deps && \
-	  node_modules/.bin/plop $(GENERATOR_COMPONENT) -- \
+	  node_modules/.bin/plop $(GENERATOR_COMPONENT)-partials -- \
 	    --project_id "$(GENERATOR_INPUTS_PROJECT_ID)" \
 		--project_name "$(GENERATOR_INPUTS_PROJECT_NAME)" \
 		--project_desc "$(GENERATOR_INPUTS_PROJECT_DESC)" \
