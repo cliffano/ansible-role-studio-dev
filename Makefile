@@ -151,13 +151,13 @@ update-partials: stage
 	done
 
 lint:
-	mkdir -p docs/lint/ansible-lint/
-	$(call python_venv,ansible-lint . > docs/lint/ansible-lint.txt)
+	mkdir -p docs/lint/
+	$(call python_venv,ansible-lint tasks/ &> docs/lint/ansible-lint.txt)
 	$(call python_venv,yamllint .)
-
+ 
 test:
 	$(call run_hook,x-pre-test)
-	mkdir -p docs/test/molecule
+	mkdir -p docs/test/
 	$(call python_venv,molecule test > docs/test/molecule.txt)
 
 test-examples:
