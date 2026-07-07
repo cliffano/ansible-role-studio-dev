@@ -4,7 +4,7 @@
 ################################################################
 
 # Cobbler's version number
-COBBLER_VERSION = 2.2.1-pre.0
+COBBLER_VERSION = 2.3.0
 
 ################################################################
 # User configuration variables
