@@ -9,7 +9,7 @@
 
 # Ansible Role Studio Dev Tools
 
-Studio Dev Tools is a Ansible role for provisioning dev tools for Studio projects .
+Studio Dev Tools is an Ansible role for provisioning dev tools for Studio projects .
 
 ## Usage
 
