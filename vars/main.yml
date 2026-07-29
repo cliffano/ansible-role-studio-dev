@@ -32,10 +32,12 @@ homebrew_packages:
   - docker
   - gpg
   - htop
+  - lima-additional-guestagents # needed for colima to run x86_64v3
   - nmap
   - node
   - pinentry-mac
   - python
+  - qemu # needed for colima to run x86_64v3
   - telnet
   - yq
   - hjorthjort/hjort/gitinspector
