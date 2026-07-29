@@ -104,10 +104,12 @@ skipping: [localhost] => (item=colima)
 skipping: [localhost] => (item=docker)
 skipping: [localhost] => (item=gpg)
 skipping: [localhost] => (item=htop)
+skipping: [localhost] => (item=lima-additional-guestagents)
 skipping: [localhost] => (item=nmap)
 skipping: [localhost] => (item=node)
 skipping: [localhost] => (item=pinentry-mac)
 skipping: [localhost] => (item=python)
+skipping: [localhost] => (item=qemu)
 skipping: [localhost] => (item=telnet)
 skipping: [localhost] => (item=yq)
 skipping: [localhost] => (item=hjorthjort/hjort/gitinspector)
@@ -372,10 +374,12 @@ skipping: [localhost] => (item=colima)
 skipping: [localhost] => (item=docker)
 skipping: [localhost] => (item=gpg)
 skipping: [localhost] => (item=htop)
+skipping: [localhost] => (item=lima-additional-guestagents)
 skipping: [localhost] => (item=nmap)
 skipping: [localhost] => (item=node)
 skipping: [localhost] => (item=pinentry-mac)
 skipping: [localhost] => (item=python)
+skipping: [localhost] => (item=qemu)
 skipping: [localhost] => (item=telnet)
 skipping: [localhost] => (item=yq)
 skipping: [localhost] => (item=hjorthjort/hjort/gitinspector)
@@ -546,4 +550,4 @@ collected 23 items
 
 tests/test_defaults.py .......................                           [100%]
 
-============================= 23 passed in 11.90s ==============================
+============================= 23 passed in 11.99s ==============================
