@@ -86,6 +86,7 @@ skipping: [localhost]
 
 TASK [geerlingguy.mac.homebrew : Ensure configured taps are tapped.] ***********
 skipping: [localhost] => (item=hjorthjort/hjort)
+skipping: [localhost] => (item=koekeishiya/formulae)
 skipping: [localhost]
 
 TASK [geerlingguy.mac.homebrew : Ensure blacklisted cask applications are not installed.] ***
@@ -113,6 +114,7 @@ skipping: [localhost] => (item=qemu)
 skipping: [localhost] => (item=telnet)
 skipping: [localhost] => (item=yq)
 skipping: [localhost] => (item=hjorthjort/hjort/gitinspector)
+skipping: [localhost] => (item=koekeishiya/formulae/yabai)
 skipping: [localhost] => (item=1password-cli)
 skipping: [localhost]
 
@@ -356,6 +358,7 @@ skipping: [localhost]
 
 TASK [geerlingguy.mac.homebrew : Ensure configured taps are tapped.] ***********
 skipping: [localhost] => (item=hjorthjort/hjort)
+skipping: [localhost] => (item=koekeishiya/formulae)
 skipping: [localhost]
 
 TASK [geerlingguy.mac.homebrew : Ensure blacklisted cask applications are not installed.] ***
@@ -383,6 +386,7 @@ skipping: [localhost] => (item=qemu)
 skipping: [localhost] => (item=telnet)
 skipping: [localhost] => (item=yq)
 skipping: [localhost] => (item=hjorthjort/hjort/gitinspector)
+skipping: [localhost] => (item=koekeishiya/formulae/yabai)
 skipping: [localhost] => (item=1password-cli)
 skipping: [localhost]
 
@@ -550,4 +554,4 @@ collected 23 items
 
 tests/test_defaults.py .......................                           [100%]
 
-============================= 23 passed in 11.99s ==============================
+============================= 23 passed in 10.38s ==============================
