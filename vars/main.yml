@@ -26,6 +26,7 @@ git_aliases:
 
 homebrew_taps_sources:
   - hjorthjort/hjort
+  - koekeishiya/formulae
 
 homebrew_packages:
   - colima
@@ -41,6 +42,7 @@ homebrew_packages:
   - telnet
   - yq
   - hjorthjort/hjort/gitinspector
+  - koekeishiya/formulae/yabai
 
 homebrew_cask_apps_packages:
   - firefox
