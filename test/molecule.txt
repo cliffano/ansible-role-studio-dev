@@ -193,6 +193,9 @@ changed: [localhost]
 TASK [cliffano.studio_dev : Create aliases for tmux layout scripts] ************
 changed: [localhost] => (item=studio)
 
+TASK [cliffano.studio_dev : Create aliases for yabai layout scripts] ***********
+changed: [localhost] => (item=dev-dual)
+
 TASK [cliffano.studio_dev : Ensure Oh My Zsh directory exists] *****************
 ok: [localhost]
 
@@ -272,7 +275,7 @@ TASK [cliffano.studio_dev : Set Colima aliases] ********************************
 changed: [localhost] => (item=studio)
 
 PLAY RECAP *********************************************************************
-localhost                  : ok=44   changed=36   unreachable=0    failed=0    skipped=26   rescued=0    ignored=0
+localhost                  : ok=45   changed=37   unreachable=0    failed=0    skipped=26   rescued=0    ignored=0
 
 
 PLAY [Converge] ****************************************************************
@@ -465,6 +468,9 @@ skipping: [localhost]
 TASK [cliffano.studio_dev : Create aliases for tmux layout scripts] ************
 ok: [localhost] => (item=studio)
 
+TASK [cliffano.studio_dev : Create aliases for yabai layout scripts] ***********
+ok: [localhost] => (item=dev-dual)
+
 TASK [cliffano.studio_dev : Ensure Oh My Zsh directory exists] *****************
 ok: [localhost]
 
@@ -544,14 +550,14 @@ TASK [cliffano.studio_dev : Set Colima aliases] ********************************
 ok: [localhost] => (item=studio)
 
 PLAY RECAP *********************************************************************
-localhost                  : ok=40   changed=0    unreachable=0    failed=0    skipped=30   rescued=0    ignored=0
+localhost                  : ok=41   changed=0    unreachable=0    failed=0    skipped=30   rescued=0    ignored=0
 
 ============================= test session starts ==============================
 platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0
 rootdir: /
 plugins: testinfra-10.2.2
-collected 23 items
+collected 24 items
 
-tests/test_defaults.py .......................                           [100%]
+tests/test_defaults.py ........................                          [100%]
 
-============================= 23 passed in 10.38s ==============================
+============================== 24 passed in 9.68s ==============================
