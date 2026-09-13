@@ -241,6 +241,19 @@
   loop: "{{ sdev_tmux_layout_scripts }}"
 
 ########################################
+# Yabai
+########################################
+
+- name: Create aliases for yabai layout scripts
+  ansible.builtin.lineinfile:
+    path: "{{ sdev_home_dir }}/{{ sdev_profile_file }}"
+    state: present
+    backup: no
+    regexp: "^alias yabai-{{ item }}=.*$"
+    line: "alias yabai-{{ item }}='{{ sdev_yabai_layout_scripts_dir }}/{{ item }}.sh'"
+  loop: "{{ sdev_yabai_layout_scripts }}"
+
+########################################
 # Oh My Zsh
 # Note: This section requires Oh My Zsh to be installed on userland
 #       e.g. by using  gantsign.oh-my-zsh role

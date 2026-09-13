@@ -93,6 +93,11 @@ def test_tmux_aliases(host):
     assert tmux_aliases_file.mode == 0o644
     assert "alias tmux-studio='/tmp/tmux-layouts/studio.tmux'" in tmux_aliases_file.content_string
 
+def test_yabai_aliases(host):
+
+    profile_file = host.file("/tmp/.zprofile")
+    assert "alias yabai-dev-dual='/tmp/yabai-layouts/dev-dual.sh'" in profile_file.content_string
+
 def test_bullet_train_theme(host):
 
     theme_file = host.file("/tmp/.oh-my-zsh/themes/bullet-train.zsh-theme")

@@ -24,6 +24,9 @@ sdev_tmux_aliases_file: aliases-tmux.zsh
 sdev_tmux_layout_scripts_dir: /tmp/tmux-layouts
 sdev_tmux_layout_scripts:
   - studio
+sdev_yabai_layout_scripts_dir: /tmp/yabai-layouts
+sdev_yabai_layout_scripts:
+  - dev-dual
 sdev_npm_packages:
   - repoman
 sdev_workspaces:

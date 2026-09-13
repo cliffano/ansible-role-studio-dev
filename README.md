@@ -53,6 +53,8 @@ Use the role in your playbook:
 | sdev_tmux_aliases_file | Oh My Zsh tmux aliases custom file | `aliases-tmux.zsh` | `aliases-tmux.zsh` |
 | sdev_tmux_layout_scripts_dir | Directory containing tmux layout scripts | `/tmp/tmux-layouts` | `/opt/tmux-layouts` |
 | sdev_tmux_layout_scripts | List of tmux layout script names | `[studio]` | `[studio, dev]` |
+| sdev_yabai_layout_scripts_dir | Directory containing yabai layout scripts | `/tmp/yabai-layouts` | `/opt/yabai-layouts` |
+| sdev_yabai_layout_scripts | List of yabai layout script names | `[dev-dual]` | `[dev-dual, dev-triple]` |
 | sdev_npm_packages | List of global npm packages to install | `[repoman]` | `[repoman, yo]` |
 | sdev_workspaces | List of workspace names, creates `~/dev/workspace-<name>` directories | `[control]` | `[control, garage]` |
 | sdev_vscode_workspaces | List of VSCode workspace names | `[control]` | `[control, garage]` |
