@@ -58,7 +58,7 @@ Use the role in your playbook:
 | sdev_npm_packages | List of global npm packages to install | `[repoman]` | `[repoman, yo]` |
 | sdev_workspaces | List of workspace names, creates `~/dev/workspace-<name>` directories | `[control]` | `[control, garage]` |
 | sdev_vscode_workspaces | List of VSCode workspace names | `[control]` | `[control, garage]` |
-| sdev_colima_networks | List of Colima network names | `[studio]` | `[studio, dev]` |
+| sdev_colima_networks | List of Colima network configs, each with `id` and `args` (the `colima start` args) | `[{id: studio, args: '--cpu 4 --memory 4'}]` | `[{id: studio, args: '--arch aarch64 --vm-type vz --vz-rosetta --cpu 4 --memory 4'}, {id: dev, args: '--cpu 2 --memory 2'}]` |
 | sdev_docker_images | List of Docker image configs, each with `id`, `image`, `env_file`, `home_dir`, and `entrypoint` | `[{id: studio, image: cliffano/studio, ...}]` | `[{id: myapp, image: myorg/myapp, env_file: /tmp/.env, home_dir: root, entrypoint: /bin/bash}]` |
 | sdev_homebrew_packages_extra | Extra Homebrew packages to install on top of the base list | `[1password-cli]` | `[1password-cli, awscli]` |
 | sdev_homebrew_cask_apps_extra | Extra Homebrew cask apps to install on top of the base list | `[discord]` | `[discord, slack]` |
